@@ -7,19 +7,7 @@
 
   programs.zen-browser = {
     enable = true;
-    # Same shape as Firefox's policies.json.
-    policies = {
-      "3rdparty" = {
-        "Extensions" = {
-          # Bitwarden Password Manager's Firefox extension ID.
-          "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-            environment = {
-	      base = "https://vaultwarden-gce.sheep-cichlid.ts.net";
-	    };
-          };
-        };
-      };
-    };
+
 
     profiles.default = {
       id = 0;
