@@ -33,6 +33,7 @@
         inherit system;
         modules = [
           ./hardware-configuration.nix
+          ./flakes/neovim.nix
 
           ({ config, lib, pkgs, ... }: {
             networking.hostName = hostname;
@@ -65,15 +66,15 @@
             networking = {
               networkmanager.enable = true;
               firewall = {
-	        trustedInterfaces = [ "tailscale0" ];
+                trustedInterfaces = [ "tailscale0" ];
                 checkReversePath = "loose";
-	      };
+              };
             };
 
             time.timeZone = "Asia/Tokyo";
 
             security = {
-	      audit.enable = false;
+              audit.enable = false;
               rtkit.enable = true;
               polkit.enable = true;
             };
@@ -85,9 +86,9 @@
             };
 
             fonts.packages = with pkgs; [
-	      nerd-fonts.iosevka-term
-	      iosevka
-	      font-awesome
+              nerd-fonts.iosevka-term
+              iosevka
+              font-awesome
             ];
 
             hardware = {
@@ -96,15 +97,15 @@
                 enable32Bit = true;
               };
               bluetooth = {
-	        enable = true;
-		settings = {
-		  General = {
-		    Experimental = true;
-		    FastConnectable = true;
-		  };
-		  Policy.AutoEnable = true;
-		};
-	      };
+                enable = true;
+                settings = {
+                  General = {
+                    Experimental = true;
+                    FastConnectable = true;
+                  };
+                  Policy.AutoEnable = true;
+                };
+              };
               steam-hardware.enable = true;
             };
             nixpkgs.config.allowUnfree = true;
@@ -141,23 +142,16 @@
               };
             };
 
-	    systemd = {
-	      coredump.enable = false;
-	      oomd.enable = false;
-	      services = {
-	        NetworkManager-wait-online.enable = false;
-		systemd-udev-settle.enable = false;
-	      };
-	    };
+            systemd = {
+              coredump.enable = false;
+              oomd.enable = false;
+              services = {
+                NetworkManager-wait-online.enable = false;
+                systemd-udev-settle.enable = false;
+              };
+            };
 
             programs = {
-              neovim = {
-                enable = true;
-                defaultEditor = true;
-                viAlias = true;
-                vimAlias = true;
-              };
-
               sway.enable = true;
               gamemode.enable = true;
 
@@ -214,7 +208,7 @@
                 fastfetch
                 btop
                 eza
-		rclone
+                rclone
                 bat
                 wget
                 git
@@ -279,28 +273,28 @@
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.${username} = { pkgs, inputs, ... }: {
               imports = [
-                ./assets/sway.nix
-                ./assets/waybar.nix
-                ./assets/wofi.nix
-		./assets/kitty.nix
-		./assets/mako.nix
-		./assets/zen-browser.nix
+                ./home/sway.nix
+                ./home/waybar.nix
+                ./home/wofi.nix
+                ./home/kitty.nix
+                ./home/mako.nix
+                ./home/zen-browser.nix
               ];
 
-             home.packages = with pkgs; [
-	       yazi
-	       cava
-	       cmus
-	       autotiling
-	       mpv
-	       lutris
-	       grim
-	       slurp
-	       wl-clipboard
-	       picard
-	       brightnessctl
-	       wireplumber
-             ];
+              home.packages = with pkgs; [
+                yazi
+                cava
+                cmus
+                autotiling
+                mpv
+                lutris
+                grim
+                slurp
+                wl-clipboard
+                picard
+                brightnessctl
+                wireplumber
+              ];
 
               home.stateVersion = "26.05";
             };
