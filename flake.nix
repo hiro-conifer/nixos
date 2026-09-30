@@ -279,12 +279,12 @@
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.${username} = { pkgs, inputs, ... }: {
               imports = [
-                ./home/sway.nix
-                ./home/waybar.nix
-                ./home/wofi.nix
-                ./home/kitty.nix
-                ./home/mako.nix
-                ./home/zen-browser.nix
+                ./assets/sway.nix
+                ./assets/waybar.nix
+                ./assets/wofi.nix
+		./assets/kitty.nix
+		./assets/mako.nix
+		./assets/zen-browser.nix
               ];
 
              home.packages = with pkgs; [
