@@ -1,0 +1,8 @@
+{
+  "hostname": "nixos",
+  "username": "hiro",
+  "gpu": "none",
+  "mounts": [
+    { "name": "games", "uuid": "XXXX-XXXX", "fsType": "exfat" }
+  ]
+}
