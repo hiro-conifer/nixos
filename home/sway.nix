@@ -245,6 +245,8 @@ in
       
       startup = [
         { command = "fcitx5"; }
+        { command = "blueman-applet"; }
+        { command = "kdeconnect-indicator"; }
         { command = "autotiling"; }
         { command = "mako"; }
         { command = "swaymsg workspace number 1"; }
