@@ -186,6 +186,24 @@
         font-size: 16px;
       }
 
+      /* トレイを右クリックしたときのメニュー (背景の透過を打ち消す) */
+      menu {
+        background-color: rgba(17, 17, 17, 0.95);
+        background-image: none;
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+      }
+
+      menuitem {
+        background-color: transparent;
+        color: #ffffff;
+      }
+
+      menuitem:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+
       window#waybar.hidden {
         opacity: 0.2;
       }
